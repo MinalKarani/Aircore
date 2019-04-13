@@ -1,0 +1,18 @@
+.footer {
+  min-height: 50px;
+  background: #E5E5E5;
+  
+  text-align: center;
+  background-color:#EB6864;
+  font-size: 18px;
+  font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
+  font-weight: 700;
+  color:white;
+  width:100%;
+  
+}
+
+.footerText{
+  margin-top: 25px;
+}
+

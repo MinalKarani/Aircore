@@ -9,8 +9,8 @@ function Nav() {
       <a className="navbar-brand" href="/about">
         About
       </a>
-      <a className="navbar-brand" href="/">
-        Login
+      <a className="navbar-brand" href="/search">
+        Search News
       </a>
     </nav>
   );

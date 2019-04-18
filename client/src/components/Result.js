@@ -8,6 +8,7 @@ export function Result(props) {
       return(
         <Jumbotron> 
           <legend>Results</legend>  
+
           <List>
           <ListItem>
             
@@ -43,6 +44,8 @@ export function Result(props) {
           <span>{props.year_built}</span>
           </ListItem>
           </List>
+
+         
         </Jumbotron>
         )
       }

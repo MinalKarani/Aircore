@@ -4,13 +4,16 @@ function Nav() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
       <a className="navbar-brand" href="/">
-        AirCore
+        HomeMavens
       </a>
       <a className="navbar-brand" href="/about">
         About
       </a>
       <a className="navbar-brand" href="/search">
-        Search News
+        Search Home
+      </a>
+      <a className="navbar-brand" href="/login">
+        Login
       </a>
     </nav>
   );

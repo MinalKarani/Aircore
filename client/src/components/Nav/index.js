@@ -10,7 +10,7 @@ function Nav() {
       <a className="navbar-brand" href="/about">
       Search Home
       </a>
-      
+
       <a className="navbar-brand" href="/login">
         Login
       </a>

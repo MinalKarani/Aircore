@@ -3,6 +3,7 @@ import Jumbotron from "../components/Jumbotron";
 import { ListItem,List } from "../components/List";
 
 export function Result(props) {
+
     
       return(
         
@@ -44,6 +45,7 @@ export function Result(props) {
           </ListItem>
           </List>
       )
+
 }
 
 export default Result;

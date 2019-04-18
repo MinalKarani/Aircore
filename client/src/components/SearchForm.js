@@ -20,13 +20,17 @@ class SearchForm extends Component {
     finished_size:0,
     year_built:0,
     flag:false,
+
     ZIP:""
+
+  
+
   };
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
       [name]: value,
-     
+
     });
   };
   
@@ -37,6 +41,7 @@ class SearchForm extends Component {
       
       flag:true
     });
+
 
     
     var url= "https://search.onboard-apis.com/propertyapi/v1.0.0/property/detail?address1="+this.state.address+"&address2="+this.state.city+" NJ"
@@ -49,6 +54,13 @@ class SearchForm extends Component {
     }).then(response => {
       console.log("response:  "+ JSON.stringify(response))
       /*
+
+    
+    var url = "https://api.estated.com/property/v3?token=EeGfiyigKeWeKFbdaSzo14IJL6le26&address="+this.state.address+"&city="+this.state.city+"&state=NJ";
+    console.log("Url=="+url);
+    axios.get(url).then(response => {
+      
+
       console.log("Address:  "+response.data.properties[0].addresses[0].formatted_street_address);
       console.log("Address:  "+response.data.properties[0].addresses[0].city);
       console.log("Address:  "+response.data.properties[0].addresses[0].state);
@@ -64,11 +76,14 @@ class SearchForm extends Component {
         building_type:response.data.properties[0].structures[0].building_type,
         finished_size:response.data.properties[0].structures[0].finished_size,
         year_built:response.data.properties[0].structures[0].year_built
-      });*/
+
+      });
+
      })
      
      
   };
+
   handleZipFormSubmit = event => {
     event.preventDefault();
     this.setState({
@@ -152,6 +167,64 @@ render() {
       </FormBtn>
       </form>
     </Jumbotron>
+
+render() {
+  return (
+    <Jumbotron>
+    
+ 
+    <legend>Search Property</legend>
+    <form>
+    <div class="form-group">
+      <label for="address">Address</label>
+          <Input
+            value={this.state.address}
+            onChange={this.handleInputChange}
+            name="address"
+            placeholder="Address (Optional)"
+          />
+    </div>
+    <div class="form-group">
+    <label for="city">City</label>
+    <Input
+          value={this.state.city}
+          onChange={this.handleInputChange}
+          name="city"
+          placeholder="City (required)"
+        />
+    </div>
+    <div class="form-group">
+      <label for="place">State</label>
+      <select class="form-control" id="place"
+       value={this.state.place}
+       onChange={this.handleInputChange}
+       name="place"
+      >
+        <option>NJ</option>
+        <option>NY</option>
+        <option>CA</option>
+        <option>MD</option>
+        <option>VA</option>
+      </select>
+    </div>   
+    
+    <FormBtn onClick={this.handleFormSubmit} className="btn btn-primary mt-3">
+     Search
+    </FormBtn>
+  
+    <Result flagg={this.state.flag}
+            add={this.state.address}
+            county={this.state.county}
+            school={this.state.school}
+            price={this.state.price}
+            building_type={this.state.building_type}
+            finished_size={this.state.finished_size}
+            year_built={this.state.year_built}
+
+    />    
+</form>
+</Jumbotron>
+
   );
   }
   else{

@@ -3,11 +3,11 @@ import Jumbotron from "../components/Jumbotron";
 import { ListItem,List } from "../components/List";
 
 export function Result(props) {
-    if(props.flagg)
-    {
+    
       return(
-        <Jumbotron> 
-          <legend>Results</legend>  
+        
+
+         
           <List>
           <ListItem>
             
@@ -43,13 +43,7 @@ export function Result(props) {
           <span>{props.year_built}</span>
           </ListItem>
           </List>
-        </Jumbotron>
-        )
-      }
-      else
-      {
-        return null;
-      }
+      )
 }
 
 export default Result;

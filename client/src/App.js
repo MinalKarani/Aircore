@@ -9,7 +9,7 @@ import savedBooks from "./pages/savedBooks";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import SearchForm from "./components/SearchForm";
-import searchNews from "./pages/searchNews";
+import ZipResult from "./components/ZipResult";
 
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
           <Route exact path="/books" component={Books} />
           <Route exact path="/books/:id" component={Detail} />
           <Route exact path="/about" component={SearchForm} />
-          <Route exact path="/search" component={searchNews} />
+          <Route exact path="/searchZip" component={FirstPage} />
           
           
           <Route component={NoMatch} />

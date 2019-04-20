@@ -1,8 +1,4 @@
 import axios from "axios";
-const BASEURL = "https://www.googleapis.com/books/v1/volumes?q=";
-const APIKEY = "&api_key=AIzaSyCtLSHBF5Jzk3XmiucSvFj48gHSFoSZXhw";
-
- 
 
 export default {
   // Gets all books
@@ -21,16 +17,34 @@ export default {
   saveBook: function(bookData) {
     return axios.post("/api/books", bookData);
   },
-  search: function(query) {
-    console.log(query);
-    console.log(BASEURL + query + APIKEY);
+  
+  //Function to display Map for address
+  
+  displayAddress: function(address1,address2) {
     
-    return axios.get(BASEURL + query + APIKEY);
-  },
-  searchBookById: function(id) {
-    console.log(id);
-    console.log(BASEURL + id + APIKEY);
+         
+    var url= "https://search.onboard-apis.com/propertyapi/v1.0.0/property/detail?address1="+ address1 +"&address2=" + address2 + " NJ";
+       
+    console.log("Url=="+url);
+    let headers = {'apikey': "833ffeb2822b8ee5778f7b5073319970"}
+     
+    return(axios.get(url,{
+    headers:{
+      "apikey": "833ffeb2822b8ee5778f7b5073319970"
+    }
+  }));
+      
+     
     
-    return axios.get(BASEURL + id + APIKEY );
+    
+},
+
+  displayMap: function(address) {
+    
+         
+      var url= "http://www.mapquestapi.com/geocoding/v1/address?key=ZPViVitEZfDIkNDJDVplI6lK2sz0ShE7&location=" + address;
+      
+      console.log("Url=="+url);
+      return(axios.get( url));
   }
 };

@@ -25,8 +25,7 @@ class SearchForm extends Component {
     zipresults:[],
     zipFlag:false,
     mapUrl:"",
-    line1:"",
-    line2:""
+    
   };
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -48,8 +47,7 @@ class SearchForm extends Component {
         levels:response.data.property[0].summary.levels,
         finished_size:response.data.property[0].building.size.livingsize,
         year_built:response.data.property[0].summary.yearbuilt,
-        line1:response.data.property[0].address.line1,
-        line2:response.data.property[0].address.line2
+        
         });
         
       })

@@ -5,11 +5,12 @@ import Map from '../components/Map.js'
 import axios from "axios";
 import API from "../utils/API";
 import ResultList from "../components/ResultList";
+import { Link } from "react-router-dom";
 
 //http://www.mapquestapi.com/geocoding/v1/address?key=KEY&location=Washington,DC
 class Result extends Component {  
   state = {    
-    flag: false,
+    zipFlag: false,
     address: "",
     county: "",
     flood:"",
@@ -43,63 +44,51 @@ class Result extends Component {
           levels:response.data.property[0].summary.levels,
           finished_size:response.data.property[0].building.size.livingsize,
           year_built:response.data.property[0].summary.yearbuilt,
-          
+          zipFlag:true
           });
-          return(
-          <ResultList
-            add={this.state.address}
-            county={this.state.county}
-            levels={this.state.levels}
-            building_type={this.state.building_type}
-            finished_size={this.state.finished_size}
-            year_built={this.state.year_built}
-            zipresults={this.state.zipresults}
-            Url={this.state.mapUrl}
-            
-
-          />    )
+          
       })
 
       .catch(err => console.log(err));
-    
+       this.render();
   }
 
   render()
     {
       
-    if(!this.props.flag)
+    if(!this.props.flag || this.zipFlag)
     {
       return(      
         <Jumbotron>
           <legend>Address Listing</legend>
           <br></br>
-          <button type="button" className="btn btn-primary mt-3 btnNew" data-id={this.props.year_built} onClick={this.displayMap}>Save</button>
-          <img src={this.props.Url} alt="MapUrl"/>
+          <button type="button" className="btn btn-primary mt-3 btnNew"  onClick={this.displayMap}>Save</button>
+          
           <ul>
           
           <li>
-            Address:
-            <span>{this.props.add}</span>
+          Address:
+          <span>{this.props.add?this.props.add:this.state.address}</span>
           </li>
           <li>
           County:
-          <span>{this.props.county}</span>
+          <span>{this.props.county?this.props.county:this.state.county}</span>
           </li>
           <li>
           building_type:
-          <span>{this.props.building_type}</span>
+          <span>{this.props.building_type?this.props.building_type:this.state.building_type}</span>
           </li>
           <li>
           Levels:
-          <span>{this.props.levels}</span>
+          <span>{this.props.levels?this.props.levels:this.state.levels}</span>
           </li>
           <li>
           Finished Size:
-          <span>{this.props.finished_size}</span>
+          <span>{this.props.finished_size?this.props.finished_size:this.state.finished_size}</span>
           </li>
           <li>
           year_built:
-          <span>{this.props.year_built}</span>
+          <span>{this.props.year_built?this.props.year_built:this.state.year_built}</span>
           </li>
           </ul>
           <br></br>
@@ -110,6 +99,23 @@ class Result extends Component {
 
       )
     }
+    else if(this.state.zipFlag)
+    {
+      return(
+      <Result
+      add={this.state.address}
+      county={this.state.county}
+      levels={this.state.levels}
+      building_type={this.state.building_type}
+      finished_size={this.state.finished_size}
+      year_built={this.state.year_built}
+      zipresults={this.state.zipresults}
+      Url={this.state.mapUrl}
+      
+
+/>    
+      );
+    }
     else
     {
       return(        
@@ -118,16 +124,19 @@ class Result extends Component {
         <ol>
         {this.props.zipresults.map(item => (  
           
-            <li>              
-              <button onClick={() => this.searchHome(item.address.oneLine)}>{item.address.oneLine}</button>            
+            <li>      
+              
+              <button onClick={() => this.searchHome(item.address.oneLine)}>{item.address.oneLine}</button>   
+              
             </li>   
                 
       ))}
       </ol>
+     
       </Jumbotron>
       )
     }  
-     
+    
 }
 }
 export default Result;

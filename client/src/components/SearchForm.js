@@ -5,7 +5,6 @@ import axios from "axios";
 import FirstPage from "../pages/FirstPage";
 import NoMatch from "../pages/NoMatch";
 import Result from "../pages/Result";
-import { Link } from "react-router-dom";
 import API from "../utils/API";
 
 class SearchForm extends Component {  

@@ -12,6 +12,7 @@ import SearchForm from "./components/SearchForm";
 import ZipResult from "./components/ZipResult";
 
 
+
 function App() {
   return (
     <Router>
@@ -23,6 +24,7 @@ function App() {
           <Route exact path="/books/:id" component={Detail} />
           <Route exact path="/about" component={SearchForm} />
           <Route exact path="/searchZip" component={FirstPage} />
+         
           
           
           <Route component={NoMatch} />

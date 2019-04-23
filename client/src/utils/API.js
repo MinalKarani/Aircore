@@ -34,9 +34,6 @@ export default {
     }
   }));
       
-     
-    
-    
 },
 
   displayMap: function(address) {

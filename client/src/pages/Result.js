@@ -99,28 +99,17 @@ class Result extends Component {
 
       )
     }
-    else if(this.state.zipFlag)
-    {
-      return(
-      <Result
-      add={this.state.address}
-      county={this.state.county}
-      levels={this.state.levels}
-      building_type={this.state.building_type}
-      finished_size={this.state.finished_size}
-      year_built={this.state.year_built}
-      zipresults={this.state.zipresults}
-      Url={this.state.mapUrl}
-      
-
-/>    
-      );
-    }
+    
     else
     {
       return(        
         <Jumbotron>
+        <div className="row">
+        
         <legend>Lisiting by ZipCode</legend>
+
+        <div className="col-md-4">
+        <br></br>
         <ol>
         {this.props.zipresults.map(item => (  
           
@@ -132,7 +121,40 @@ class Result extends Component {
                 
       ))}
       </ol>
-     
+      </div>
+      <div className="col-md-8">
+
+      <br></br>
+      <ul>
+          
+          <li>
+          Address:
+          <span>{this.props.add?this.props.add:this.state.address}</span>
+          </li>
+          <li>
+          County:
+          <span>{this.props.county?this.props.county:this.state.county}</span>
+          </li>
+          <li>
+          building_type:
+          <span>{this.props.building_type?this.props.building_type:this.state.building_type}</span>
+          </li>
+          <li>
+          Levels:
+          <span>{this.props.levels?this.props.levels:this.state.levels}</span>
+          </li>
+          <li>
+          Finished Size:
+          <span>{this.props.finished_size?this.props.finished_size:this.state.finished_size}</span>
+          </li>
+          <li>
+          year_built:
+          <span>{this.props.year_built?this.props.year_built:this.state.year_built}</span>
+          </li>
+          </ul>
+          <button type="button" className="btn btn-primary mt-3 btnNew"  onClick={this.displayMap}>Save</button>
+      </div>
+      </div>
       </Jumbotron>
       )
     }  

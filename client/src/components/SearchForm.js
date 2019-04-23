@@ -89,7 +89,7 @@ class SearchForm extends Component {
   handleZipFormSubmit = event => {
     event.preventDefault();
     
-    var url= "https://search.onboard-apis.com/propertyapi/v1.0.0/property/address?postalcode=08817&page=1&pagesize=10"
+    var url= "https://search.onboard-apis.com/propertyapi/v1.0.0/property/address?postalcode=" + this.state.ZIP + "&page=1&pagesize=10"
     
     console.log("Url=="+url);
     axios.get( url,{

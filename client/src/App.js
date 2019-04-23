@@ -23,7 +23,6 @@ function App() {
           <Route exact path="/books" component={Books} />
           <Route exact path="/books/:id" component={Detail} />
           <Route exact path="/about" component={SearchForm} />
-          <Route exact path="/searchZip" component={FirstPage} />
          
           
           

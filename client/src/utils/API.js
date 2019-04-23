@@ -20,10 +20,10 @@ export default {
   
   //Function to display Map for address
   
-  displayAddress: function(address1,address2) {
+  displayAddress: function(address1,address2,address3) {
     
          
-    var url= "https://search.onboard-apis.com/propertyapi/v1.0.0/property/detail?address1="+ address1 +"&address2=" + address2 + " NJ";
+    var url= "https://search.onboard-apis.com/propertyapi/v1.0.0/property/detail?address1="+ address1 +"&address2=" + address2 + " " + address3;
        
     console.log("Url=="+url);
     let headers = {'apikey': "833ffeb2822b8ee5778f7b5073319970"}

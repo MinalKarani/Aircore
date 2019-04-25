@@ -119,7 +119,7 @@ render() {
               value={this.state.address}
               onChange={this.handleInputChange}
               name="address"
-              placeholder="Address (Optional)"
+              placeholder="Address (Required)"
             />
       </div>
       <div class="form-group">
@@ -128,7 +128,7 @@ render() {
             value={this.state.city}
             onChange={this.handleInputChange}
             name="city"
-            placeholder="City (required)"
+            placeholder="City (Required)"
           />
       </div>
       <div class="form-group">

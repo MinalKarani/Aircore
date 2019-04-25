@@ -1,13 +1,8 @@
 import React, { Component } from "react";
 import Jumbotron from "../components/Jumbotron";
-import { ListItem, List } from "../components/List";
-import Map from '../components/Map.js'
-import axios from "axios";
 import API from "../utils/API";
-import ResultList from "../components/ResultList";
-import { Link } from "react-router-dom";
 
-//http://www.mapquestapi.com/geocoding/v1/address?key=KEY&location=Washington,DC
+
 class Result extends Component {
   state = {
     zipFlag: false,
@@ -32,10 +27,7 @@ class Result extends Component {
 
   saveHouse = event => {
     console.log("SAVE HOUSEEEEEE");
-    /*const thisBook = this.state.results.find(book => book.id === event.target.id);
-    console.log(this.state.results);
-    console.log(thisBook);*/
-    //console.log(this.state.house);
+  
     const dbHouse = {
       address: this.props.address,
       county: this.props.county,

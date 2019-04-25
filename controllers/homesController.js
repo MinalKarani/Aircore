@@ -8,7 +8,7 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
       console.log(res);
-  },
+    },
   findById: function(req, res) {
     db.House
       .findById(req.params.id)

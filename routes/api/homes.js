@@ -1,19 +1,19 @@
 const router = require("express").Router();
 const homesController = require("../../controllers/homesController");
 
-// Matches with "/api/books"
+// Matches with "/api/homes"
 router.route("/")
   .get(homesController.findAll)
   .post(homesController.create);
 
-// Matches with "/api/books/:id"
+// Matches with "/api/homes/:id"
 router
   .route("/:id")
   .get(homesController.findById)
   .put(homesController.update)
   .delete(homesController.remove);
 
-// /api/books/about
+// /api/homes/about
 router
   .route("/about")
   .get(homesController.findAll)

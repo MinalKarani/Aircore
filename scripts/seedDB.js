@@ -5,22 +5,29 @@ const db = require("../models");
 
 mongoose.connect(
   process.env.MONGODB_URI ||
-  "mongodb://localhost/reactreadinglist"
+  "mongodb://localhost/reactHouse"
 );
 
-const bookSeed = [
+const houseSeed = [
   {
-    authors: ["Suzanne Collins"],
-    title: "The Hunger Games",
-    synopsis: "Set in a dark vision of the near future, a terrifying reality TV show is taking place. Twelve boys and twelve girls are forced to appear in a live event called The Hunger Games. There is only one rule: kill or be killed. When sixteen-year-old Katniss Everdeen steps forward to take her younger sister's place in the games, she sees it as a death sentence. But Katniss has been close to death before. For her, survival is second nature.",
-    image: "http://books.google.com/books/content?id=sazytgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
-    link: "http://books.google.com/books?id=sazytgAACAAJ&dq=title:The+Hunger+Games&hl=&source=gbs_api"
+    address: "19 Chestnut St,Edison,NJ 08817",
+    county: "Middlesex",
+    building_type: "Single Family House",
+    finished_size: "1836",
+    year_built: "1951"
+  },
+  {
+    Address:"2 CHESTNUT ST, EDISON, NJ 08817",
+    County:"Middlesex County",
+    building_type:"Single Family Residence / Townhouse",
+    finished_size:"2034",
+    year_built:"1992"
   }
 ];
 
-db.Book
+db.House
   .remove({})
-  .then(() => db.Book.collection.insertMany(bookSeed))
+  .then(() => db.House.collection.insertMany(houseSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);

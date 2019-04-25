@@ -42,8 +42,7 @@ class SearchForm extends Component {
         this.setState({
         address:response.data.property[0].address.oneLine,
         county:response.data.property[0].area.countrysecsubd,
-        building_type:response.data.property[0].summary.propclass,
-        levels:response.data.property[0].summary.levels,
+        building_type:response.data.property[0].summary.propclass,        
         finished_size:response.data.property[0].building.size.livingsize,
         year_built:response.data.property[0].summary.yearbuilt,
         
@@ -54,21 +53,18 @@ class SearchForm extends Component {
       .catch(err => console.log(err));
 
    
-    }
+    }    
 
     showMap = () => {
       console.log("search Map");
-      API.displayMap(this.state.address)
-  
+      API.displayMap(this.state.address+ " "+this.state.city)  
         .then(response => {
           console.log("response:  "+ JSON.stringify(response));
           this.setState({
-          mapUrl:response.data.results.locations[0].mapUrl,
-          
+            mapUrl:response.data.results[0].locations[0].mapUrl,          
           });
-          console.log("MapUrl  "+this.state.mapUrl);
-        })
-        
+          console.log("MapUrllllllllllllllllll  "+this.state.mapUrl);
+        })        
         .catch(err => console.log(err));
   
      
@@ -105,6 +101,7 @@ class SearchForm extends Component {
       });
         
     }) 
+    
   };
 
 render() {
@@ -184,7 +181,7 @@ render() {
             finished_size={this.state.finished_size}
             year_built={this.state.year_built}
             zipresults={this.state.zipresults}
-            Url={this.state.mapUrl}
+            mapUrl={this.state.mapUrl}
             
 
     />    

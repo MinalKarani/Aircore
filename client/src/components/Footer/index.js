@@ -4,7 +4,7 @@ import "./style.css";
 function Footer() {
   return (
     <footer className="footer">
-      <span className="footerText">AirCore : 2019</span>
+      <span className="footerText">Homemavens : 2019</span>
     </footer>
   );
 }

@@ -62,6 +62,7 @@ class Result extends Component {
   searchHome = (str) => {
     console.log("search home:  " + str);
     var str1 = str.split(",");
+
     console.log(str1[0], str1[1]);
     API.displayAddress(str1[0], str1[1])
 
@@ -144,6 +145,7 @@ class Result extends Component {
     else {
       return (
         <Jumbotron>
+
           <div className="row">
 
             <legend>Lisiting by ZipCode</legend>
@@ -197,6 +199,7 @@ class Result extends Component {
             </div>
           </div>
         </Jumbotron>
+
       )
     }
 

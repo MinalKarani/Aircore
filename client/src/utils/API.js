@@ -22,6 +22,7 @@ export default {
 
   //Function to display Map for address
 
+
   displayAddress: function (address1, address2) {
 
 
@@ -45,5 +46,6 @@ export default {
 
     console.log("Url==" + url);
     return (axios.get(url));
+
   }
 };

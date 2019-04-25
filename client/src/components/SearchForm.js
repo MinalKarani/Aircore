@@ -35,7 +35,7 @@ class SearchForm extends Component {
 
   searchHome = () => {
     console.log("search home");
-    API.displayAddress(this.state.address,this.state.city)
+    API.displayAddress(this.state.address,this.state.city,this.state.place)
 
       .then(response => {
         console.log("response:  "+ JSON.stringify(response));
@@ -133,7 +133,7 @@ render() {
       </div>
       <div class="form-group">
         <label for="place">State</label>
-        <select class="form-control" id="place"
+        <select class="form-control"
          value={this.state.place}
          onChange={this.handleInputChange}
          name="place"

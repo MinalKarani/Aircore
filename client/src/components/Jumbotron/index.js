@@ -1,5 +1,6 @@
 import React from "react";
-import "./jumbotron.css"; 
+import "./jumbotron.css";
+//import Carousel from "../Carousel"; 
 function Jumbotron({ children }) {
   return (
     <div
@@ -7,8 +8,11 @@ function Jumbotron({ children }) {
       className="jumbotron"
     >
       {children}
+      
     </div>
+    
   );
+ 
 }
 
 export default Jumbotron;

@@ -2,13 +2,13 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const bookSchema = new Schema({
-  title: { type: String, required: true },
-  authors: { type:Array},
-  synopsis: String,
-  image: String,
-  link: String,
+  address: { type: String, required: true },
+  county: { type:String},
+  building_type: String,
+  finished_size: Number,
+  year_built: Number,
   //date: { type: Date, default: Date.now }
 });
-const Book = mongoose.model("Book", bookSchema);
+const House = mongoose.model("House", bookSchema);
 
-module.exports = Book;
+module.exports = House;

@@ -13,4 +13,10 @@ router
   .put(booksController.update)
   .delete(booksController.remove);
 
+// /api/books/about
+router
+  .route("/about")
+  .get(booksController.findAll)
+  .post(booksController.create);
+
 module.exports = router;

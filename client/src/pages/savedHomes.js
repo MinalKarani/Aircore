@@ -7,8 +7,8 @@ import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
 import SearchResultContainer from "../components/SearchResultContainer";
-import "../pages/savedBook.css"
-class Books extends Component {
+import "../pages/savedHome.css"
+class Homes extends Component {
   state = {    
     address:"",
     county:"",
@@ -16,26 +16,26 @@ class Books extends Component {
     levels:"",
     finished_size:"",
     year_built:"",
-    books:[]
+    homes:[]
   };
 
   componentDidMount() {
-    this.loadBooks();
+    this.loadHomes();
   }
 
-  loadBooks = () => {
-    API.getBooks()
+  loadHomes = () => {
+    API.getHomes()
       .then(res =>
-        this.setState({ books: res})
+        this.setState({ homes: res})
         
       )
       .catch(err => console.log(err));
-       console.log(this.state.books);
+       console.log(this.state.homes);
   };
 
-  deleteBook = id => {
+  deleteHome = id => {
     API.deleteBook(id)
-      .then(res => this.loadBooks())
+      .then(res => this.loadHomes())
       .catch(err => console.log(err));
   };
 
@@ -80,4 +80,4 @@ class Books extends Component {
   }
 }
 
-export default Books;
+export default Homes;

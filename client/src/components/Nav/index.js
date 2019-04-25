@@ -7,7 +7,7 @@ function Nav() {
       <a className="navbar-brand" href="/">
         HomeMavens
       </a>
-      <a className="navbar-brand" href="/about">
+      <a className="navbar-brand" href="/search">
       Search Home
       </a>
       

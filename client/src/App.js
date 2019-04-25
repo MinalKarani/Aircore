@@ -5,7 +5,7 @@ import Books from "./pages/Books";
 import Detail from "./pages/Detail";
 //import ViewBooks from "./pages/ViewBooks";
 import NoMatch from "./pages/NoMatch";
-import savedBooks from "./pages/savedBooks";
+import savedHomes from "./pages/savedHomes";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import SearchForm from "./components/SearchForm";
@@ -20,10 +20,8 @@ function App() {
         <Nav />
         <Switch>
           <Route exact path="/" component={FirstPage} />
-          <Route exact path="/books" component={Books} />
-          <Route exact path="/books/:id" component={Detail} />
-          <Route exact path="/about" component={SearchForm} />
-          <Route exact path="/save" component={savedBooks} />   
+          <Route exact path="/search" component={SearchForm} />
+          <Route exact path="/save" component={savedHomes} />   
           <Route component={NoMatch} />
         </Switch>
         <Footer />

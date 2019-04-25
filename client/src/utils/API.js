@@ -2,22 +2,22 @@ import axios from "axios";
 
 export default {
   // Gets all books
-  getBooks: function () {
+  getHomes: function () {
     console.log("saved house")    
-    return axios.get("/api/books");
+    return axios.get("/api/homes");
   },
   // Gets the book with the given id
-  getBook: function (id) {
-    return axios.get("/api/books/" + id);
+  getHome: function (id) {
+    return axios.get("/api/homes/" + id);
   },
   // Deletes the book with the given id
-  deleteBook: function (id) {
-    return axios.delete("/api/books/" + id);
+  deleteHome: function (id) {
+    return axios.delete("/api/homes/" + id);
   },
   // Saves a book to the database
-  saveHouse: function (bookData) {
+  saveHouse: function (homeData) {
     console.log("ki holo")
-    return axios.post("/api/books", bookData);
+    return axios.post("/api/homes", homeData);
   },
 
   //Function to display Map for address

@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const bookSchema = new Schema({
-  address: { type: String, required: true },
+  address: { type: String, required: false },
   county: { type:String},
   building_type: String,
   finished_size: Number,

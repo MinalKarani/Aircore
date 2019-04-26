@@ -15,7 +15,7 @@ function Nav() {
         Login
       </a>
       <a className="navbar-brand" href="/save">
-        Saved House
+        Saved Homes
       </a>
     </nav>
   );

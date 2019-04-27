@@ -7,16 +7,16 @@ router.route("/")
   .post(homesController.create);
 
 // Matches with "/api/homes/:id"
-router
+/*router
   .route("/:id")
   .get(homesController.findById)
   .put(homesController.update)
   .delete(homesController.remove);
 
 // /api/homes/about
-router
+/*router
   .route("/about")
   .get(homesController.findAll)
   .post(homesController.create);
-
+*/
 module.exports = router;

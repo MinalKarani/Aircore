@@ -26,14 +26,13 @@ class Result extends Component {
   };
 
   saveHouse = event => {
-    console.log("SAVE HOUSEEEEEE");
-  
+    console.log("SAVE HOUSEEEEEE");  
     const dbHouse = {
-      address: this.props.address,
-      county: this.props.county,
-      building_type: this.props.building_type,
-      finished_size: this.props.finished_size,
-      year_built: this.props.year_built
+      address: this.props.add ? this.props.add : this.state.address,
+      county: this.props.county ? this.props.county : this.state.county,
+      building_type: this.props.building_type ? this.props.building_type : this.state.building_type,
+      finished_size: this.props.finished_size ? this.props.finished_size : this.state.finished_size,
+      year_built: this.props.year_built ? this.props.year_built : this.state.year_built
     };
     console.log(dbHouse)
 
@@ -52,26 +51,30 @@ class Result extends Component {
 
 
   searchHome = (str) => {
-    console.log("search home:  " + str);
+    console.log("search home:  "+str);
     var str1 = str.split(",");
-
-    console.log(str1[0], str1[1]);
-    API.displayAddress(str1[0], str1[1])
-
+    console.log(str1)
+    let str2 = str1[2].split(" ");
+    console.log(str2)
+    console.log(str1[0],str1[1],str2[0]);
+    API.displayAddress(str1[0],str1[1],str2[1])
 
       .then(response => {
-        console.log("response:  " + JSON.stringify(response));
+        console.log("response:  "+ JSON.stringify(response));
         this.setState({
-          address: response.data.property[0].address.oneLine,
-          county: response.data.property[0].area.countrysecsubd,
-          building_type: response.data.property[0].summary.propclass,
-          finished_size: response.data.property[0].building.size.livingsize,
-          year_built: response.data.property[0].summary.yearbuilt,
-          zipFlag: true
-        });
+          address:response.data.property[0].address.oneLine,
+          county:response.data.property[0].area.countrysecsubd,
+          building_type:response.data.property[0].summary.propclass,
+          levels:response.data.property[0].summary.levels,
+          finished_size:response.data.property[0].building.size.livingsize,
+          year_built:response.data.property[0].summary.yearbuilt,
+          zipFlag:true
+          });
+          
       })
+
       .catch(err => console.log(err));
-    this.render();
+       this.render();
   }
   showMap = (str) => {
     console.log("search Map");
@@ -96,7 +99,7 @@ class Result extends Component {
         <Jumbotron>
           <legend>Address Listing</legend>
           <br></br>
-          <button type="button" className="btn btn-primary mt-3 btnNew" data-id={this.props.year_built} onClick={this.saveHouse}>Save123</button>
+          <button type="button" className="btn btn-primary mt-3 btnNew" data-id={this.props.year_built} onClick={this.saveHouse}>Save</button>
           <img src={this.props.mapUrl ? this.props.mapUrl : this.state.mapUrl} alt="MapUrl"/>
           <ul>
 
@@ -160,6 +163,7 @@ class Result extends Component {
             <div className="col-md-8">
                  
               <br></br>
+              <button type="button" className="btn btn-primary mt-3 btnNew" onClick={this.saveHouse}>Save</button>
               <img src={this.props.mapUrl ? this.props.mapUrl : this.state.mapUrl} alt="MapUrl"/>
               <ul>
 
@@ -188,7 +192,7 @@ class Result extends Component {
           <span>{this.props.year_built ? this.props.year_built : this.state.year_built}</span>
                 </li>
               </ul>
-              <button type="button" className="btn btn-primary mt-3 btnNew" onClick={this.displayMap}>Save</button>
+              
             </div>
           </div>
         </Jumbotron>

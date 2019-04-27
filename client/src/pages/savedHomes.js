@@ -3,6 +3,7 @@ import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
+import { List, ListItem } from "../components/List";
 import "../pages/savedHome.css"
 class Homes extends Component {
   state = {    
@@ -22,13 +23,18 @@ class Homes extends Component {
   loadHomes = () => {
     API.getHomes()
       .then(res =>{
+        console.log("***********data"+JSON.stringify(res.data));
+        
         this.setState({ homes: res.data});
-        console.log("*****");
-        console.log("response:  "+res.data);
+        console.log("***********state data"+this.state.homes);
+
+        //console.log("*****");
+        //console.log("response:  "+JSON.stringify(res.data[0]));
+        //console.log("response:  "+JSON.stringify(res.data[1]));
       }
       )
       .catch(err => console.log(err));
-       console.log(this.state.homes);
+       //console.log(this.state.homes);
   };
 
   deleteHome = id => {
@@ -44,36 +50,42 @@ class Homes extends Component {
     });
   };
 
-  saveHouse = event => {
-    event.preventDefault();
-    //if (this.state.title && this.state.author) {
-      API.saveHouse({
-      address:this.state.address,
-      county:this.state.county,
-      building_type:this.state.building_type,      
-      finished_size:this.state.finished_size,
-      year_built:this.state.year_built
-      })
-        .then(res => this.loadBooks())
-        .catch(err => console.log(err));
-   // }
-  };
+  
 
   render() {
     return (
-      <Container fluid>
-        <Row>          
-          <Col size="md-12">
+      
             <Jumbotron>
-                <img src=""></img>
-              <h1>Saved House</h1>
-            </Jumbotron>
-             
-            
-         
-          </Col>
-        </Row>
-      </Container>
+               <div class="card" style={{width:"800px"}}>
+                  <div class="card-header" style={{ backgroundColor: "rgb(43, 43, 82)",color: "white"}}>
+                    Saved Homes
+                  </div>
+                  <div class="card-body" style={{ backgroundColor: "lightgrey",color: "black"}}>
+                    <h5 class="card-title"></h5>
+                    <p class="card-text" style={{opacity:2}}>{this.state.homes.length ? (
+              
+                          <ul>
+                            {this.state.homes.map(home => (
+                              <li>
+                                
+                                  <strong>
+                                    {home.address}
+                                  </strong>
+                                  <strong>
+                                    {home.countuy}
+                                  </strong>
+                                  
+                                  
+                                  
+                              </li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <h3>No Results to Display</h3>
+                        )}</p>
+                              </div>
+                            </div> 
+                      </Jumbotron>
     );
   }
 }

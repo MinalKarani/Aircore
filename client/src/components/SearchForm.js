@@ -6,6 +6,7 @@ import FirstPage from "../pages/FirstPage";
 import NoMatch from "../pages/NoMatch";
 import Result from "../pages/Result";
 import API from "../utils/API";
+import SelectUSState from 'react-select-us-states';
 
 class SearchForm extends Component {  
   state = {    
@@ -24,8 +25,20 @@ class SearchForm extends Component {
     zipresults:[],
     zipFlag:false,
     mapUrl:"",
-    
+    place:""
   };
+
+  constructor(props) {
+    super(props); 
+    this.setNewValue = this.setNewValue.bind(this);
+  }
+ 
+  setNewValue(newValue) {
+    console.log('this is the State code:' + newValue);
+    this.setState({
+      place: newValue,     
+    });
+  }
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -133,24 +146,20 @@ render() {
       </div>
       <div class="form-group">
         <label for="place">State</label>
-        <select class="form-control"
-         value={this.state.place}
-         onChange={this.handleInputChange}
-         name="place"
-        >
-          <option>NJ</option>
-          <option>NY</option>
-          <option>CA</option>
-          <option>MD</option>
-          <option>VA</option>
-        </select>
+        <br></br>
+        <SelectUSState 
+        value={this.state.place}
+        onChange={this.handleInputChange}
+        name="place"
+        id="myId" className="myClassName" onChange={this.setNewValue}/>
       </div>   
       
       <FormBtn onClick={this.handleFormSubmit} className="btn btn-primary mt-3">
        Search
       </FormBtn>
       </form>
-
+      <br></br>
+      <br></br>
       <p>OR</p>
       <legend>Search Property By Zip Code</legend>
       <form>

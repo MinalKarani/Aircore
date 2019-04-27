@@ -17,8 +17,8 @@ const houseSeed = [
     year_built: "1951"
   },
   {
-    Address:"2 CHESTNUT ST, EDISON, NJ 08817",
-    County:"Middlesex County",
+    address:"2 CHESTNUT ST, EDISON, NJ 08817",
+    county:"Middlesex County",
     building_type:"Single Family Residence / Townhouse",
     finished_size:"2034",
     year_built:"1992"

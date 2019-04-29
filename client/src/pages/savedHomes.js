@@ -21,7 +21,8 @@ class Homes extends Component {
   }
 
   loadHomes = () => {
-    API.getHomes()
+    let email = localStorage.getItem("email");
+    API.getHome(email)
       .then(res =>{
         console.log("***********data"+JSON.stringify(res.data));
         

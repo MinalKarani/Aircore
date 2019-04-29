@@ -16,7 +16,7 @@ class SignUpForm extends Component {
             email: '',
             password: '',
             name: '',
-            hasAgreed: false
+            saved: false
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -51,9 +51,17 @@ class SignUpForm extends Component {
             console.log(dbUser)        
             API.saveUser(dbUser)            
               .then(res => {
-                console.log("nandiniiiiii save user")
-                console.log(res.status, res.statusText);        
-              })
+
+                console.log("save user")
+                console.log(res.status, res.statusText);  
+                this.setState({
+                    saved: true
+                  });   
+                  event.target.name = "";
+                  this.state.password = "";
+                  this.state.email = "";
+              })    
+
               .catch(err => {
                 console.log(err);        
               })        
@@ -71,7 +79,7 @@ class SignUpForm extends Component {
                             <Input
                                 value={this.state.name}
                                 onChange={this.handleInputChange}
-                                name="name" type="text"
+                                name="name"
                                 placeholder="Enter your full name (Required)"
                             />                           
                         </div>
@@ -80,7 +88,7 @@ class SignUpForm extends Component {
                             <Input
                                 value={this.state.password}
                                 onChange={this.handleInputChange}
-                                name="password" type="password"
+                                name="password"
                                 placeholder="Enter your password (Required)"
                             />                           
                         </div>
@@ -89,7 +97,7 @@ class SignUpForm extends Component {
                             <Input
                                 value={this.state.email}
                                 onChange={this.handleInputChange}
-                                name="email" type="text"
+                                name="email" 
                                 placeholder="Enter your Email (Required)"
                             />                           
                         </div>                      
@@ -97,6 +105,9 @@ class SignUpForm extends Component {
                         <FormBtn onClick={this.handleFormSubmit} className="btn btn-primary mt-3">
                             Submit
                         </FormBtn>
+                        {(this.state.saved?
+                        (<p>Registration Successful</p>):(<div></div>))}
+
                     </form>
                     
                 </Jumbotron>

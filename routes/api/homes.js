@@ -7,9 +7,9 @@ router.route("/")
   .post(homesController.create);
 
 // Matches with "/api/homes/:id"
-/*router
+router
   .route("/:id")
-  .get(homesController.findById)
+  .get(homesController.find)
   .put(homesController.update)
   .delete(homesController.remove);
 

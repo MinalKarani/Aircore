@@ -10,16 +10,14 @@ function Nav() {
       <a className="navbar-brand" href="/search">
         Search Home
       </a>
-
-      <a className="navbar-brand" href="/register">
-        Register
-      </a>
       <a className="navbar-brand" href="/login">
         Login
       </a>
+
       <a className="navbar-brand" href="/save">
         Saved House
       </a>
+
     </nav>
   );
 }

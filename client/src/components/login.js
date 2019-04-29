@@ -6,7 +6,10 @@ import FirstPage from "../pages/FirstPage";
 import NoMatch from "../pages/NoMatch";
 import Result from "../pages/Result";
 import API from "../utils/API";
-import SelectUSState from 'react-select-us-states';
+
+import savedHomes from "../pages/savedHomes";
+import { Link } from "react-router-dom";
+
 
 class SignUpForm extends Component {
     constructor() {
@@ -15,8 +18,11 @@ class SignUpForm extends Component {
             email: '',
             //password: '',
             //name: '',
-            //hasAgreed: false,
-            user:[]
+
+            flag: false,
+            user:[],
+            usr:[]
+
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -37,10 +43,16 @@ class SignUpForm extends Component {
     handleFormSubmit(e) {
         e.preventDefault();
 
+        // remove
+        //localStorage.removeItem('userName');
+       
+        // remove all
+        //localStorage.clear();
         console.log('The form was submitted with the following data:');
         console.log(this.state);
         this.loadUser();
-        //this.getUser();
+        
+
     }       
     loadUser = () => {
         console.log("Ekhane")
@@ -49,19 +61,25 @@ class SignUpForm extends Component {
         console.log("***********data"+JSON.stringify(res.data));
         
         this.setState({ user: res.data});
-        console.log("***********state data"+this.state.user);
 
-        //console.log("*****");
-        //console.log("response:  "+JSON.stringify(res.data[0]));
-        //console.log("response:  "+JSON.stringify(res.data[1]));
+        this.findUser();
+       
         }
         )
         .catch(err => console.log(err));
-        //console.log(this.state.homes);
+        
+        
     };
+
+
+    findUser(){
+            this.setState({usr : this.state.user.filter(usrs => usrs.email === this.state.email)});
+            console.log(this.state.usr[0].name);
+            this.setState({ flag: true});
+            localStorage.setItem("email",this.state.usr[0].email)
+    }
     
     render() {
-        
             return (
                 <Jumbotron>
                     <legend>Sign In</legend>
@@ -74,15 +92,36 @@ class SignUpForm extends Component {
                             name="email"
                             placeholder="Enter your Email (Required)"
                         />                           
-                    </div>                           
+
+                    </div>      
+                                     
                     <FormBtn onClick={this.handleFormSubmit} className="btn btn-primary mt-3">
                         Submit
                     </FormBtn>
+                    <br></br>
+                    <br></br>
+                    <span>Don't have account. Please <a href="/register">sign up</a> here</span>
+                    
+                
+                        {(this.state.flag)?
+                        (  
+                        <div class="card" style={{width:"500px"}}>
+                        <div class="card-header" style={{ backgroundColor: "rgb(43, 43, 82)",color: "white"}}>
+                            Welcome {this.state.usr[0].name}
+                        </div>
+                        <div class="card-body" style={{ backgroundColor: "lightgrey",color: "black"}}>
+                        <a href="/save"> <button type="button" className="btn btn-success mt-3">view saved homes</button></a>
+                        </div>
+                        </div> 
+                                ) : (
+                                <h3></h3>
+                                )}
+                              
                     </form>                    
                 </Jumbotron>
             );      
-            
+            }
         }
    
-}
+
 export default SignUpForm;

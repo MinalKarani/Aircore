@@ -28,13 +28,11 @@ class Result extends Component {
   saveHouse = event => {
     console.log("SAVE HOUSEEEEEE");  
     const dbHouse = {
-
       address: this.props.add ? this.props.add : this.state.address,
       county: this.props.county ? this.props.county : this.state.county,
       building_type: this.props.building_type ? this.props.building_type : this.state.building_type,
       finished_size: this.props.finished_size ? this.props.finished_size : this.state.finished_size,
       year_built: this.props.year_built ? this.props.year_built : this.state.year_built
-
     };
     console.log(dbHouse)
 

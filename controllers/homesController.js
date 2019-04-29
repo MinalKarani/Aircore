@@ -15,6 +15,13 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  find: function (req, res) {
+    db.House
+        .find({email:req.params.id})
+        .then(dbModel => res.json(dbModel))
+        .catch(err => res.status(422).json(err));
+    console.log(res);
+},
   create: function(req, res) {
     db.House
       .create(req.body)

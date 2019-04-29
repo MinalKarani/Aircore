@@ -8,12 +8,15 @@ export default {
   },
   getUser: function () {  
     console.log("uuffff")  
-    return axios.get("/api/register");
+
+    return axios.get("/api/login");
+
   },
   // Gets the book with the given id
-  /*getHome: function (id) {
+  getHome: function (id) {
     return axios.get("/api/homes/" + id);
   },
+  /*
   // Deletes the book with the given id
   deleteHome: function (id) {
     return axios.delete("/api/homes/" + id);

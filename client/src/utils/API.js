@@ -6,25 +6,31 @@ export default {
     console.log("saved house")    
     return axios.get("/api/homes");
   },
+  getUser: function () {  
+    console.log("uuffff")  
+    return axios.get("/api/login");
+  },
   // Gets the book with the given id
-  /*getHome: function (id) {
+  getHome: function (id) {
     return axios.get("/api/homes/" + id);
   },
+  /*
   // Deletes the book with the given id
   deleteHome: function (id) {
     return axios.delete("/api/homes/" + id);
   },*/
   // Saves a book to the database
-  saveHouse: function (homeData) {
-    console.log("ki holo")
+  saveHouse: function (homeData) {    
     return axios.post("/api/homes", homeData);
+  },
+  saveUser: function (userData) {  
+    return axios.post("/api/register", userData);
   },
 
   //Function to display Map for address
 
 
-  displayAddress: function(address1,address2,address3) {
-    
+  displayAddress: function(address1,address2,address3) {    
          
     var url= "https://search.onboard-apis.com/propertyapi/v1.0.0/property/detail?address1="+ address1 +"&address2=" + address2 + " " + address3;
        

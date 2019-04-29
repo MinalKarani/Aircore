@@ -28,19 +28,11 @@ class Result extends Component {
   saveHouse = event => {
     console.log("SAVE HOUSEEEEEE");  
     const dbHouse = {
-<<<<<<< HEAD
       address: this.props.add ? this.props.add : this.state.address,
       county: this.props.county ? this.props.county : this.state.county,
       building_type: this.props.building_type ? this.props.building_type : this.state.building_type,
       finished_size: this.props.finished_size ? this.props.finished_size : this.state.finished_size,
       year_built: this.props.year_built ? this.props.year_built : this.state.year_built
-=======
-      address: this.props.add?this.props.add:this.state.address,
-      county: this.props.county?this.props.county:this.state.county,
-      building_type: this.props.building_type?this.props.building_type:this.state.building_type,
-      finished_size: this.props.finished_size?this.props.finished_size:this.state.finished_size,
-      year_built: this.props.year_built?this.props.year_built:this.state.year_built
->>>>>>> 52b93eee0852534e0e7f3b6779d8f74d0002dc5f
     };
     console.log(dbHouse)
 
@@ -154,7 +146,7 @@ class Result extends Component {
 
             <legend>Lisiting by ZipCode</legend>
 
-            <div className="col-md-6">
+            <div className="col-md-4">
               <br></br>
               <ol>
                 {this.props.zipresults.map(item => (
@@ -168,7 +160,7 @@ class Result extends Component {
                 ))}
               </ol>
             </div>
-            <div className="col-md-6">
+            <div className="col-md-8">
                  
               <br></br>
               <button type="button" className="btn btn-primary mt-3 btnNew" onClick={this.saveHouse}>Save</button>
@@ -177,29 +169,28 @@ class Result extends Component {
 
                 <li>
                   Address:
-                <span>{this.props.add ? this.props.add : this.state.address}</span>
+          <span>{this.props.add ? this.props.add : this.state.address}</span>
                 </li>
                 <li>
                   County:
-                <span>{this.props.county ? this.props.county : this.state.county}</span>
+          <span>{this.props.county ? this.props.county : this.state.county}</span>
                 </li>
                 <li>
                   building_type:
-                <span>{this.props.building_type ? this.props.building_type : this.state.building_type}</span>
+          <span>{this.props.building_type ? this.props.building_type : this.state.building_type}</span>
                 </li>
                 <li>
                   Levels:
-                <span>{this.props.levels ? this.props.levels : this.state.levels}</span>
+          <span>{this.props.levels ? this.props.levels : this.state.levels}</span>
                 </li>
                 <li>
                   Finished Size:
-                <span>{this.props.finished_size ? this.props.finished_size : this.state.finished_size}</span>
+          <span>{this.props.finished_size ? this.props.finished_size : this.state.finished_size}</span>
                 </li>
                 <li>
                   year_built:
-                <span>{this.props.year_built ? this.props.year_built : this.state.year_built}</span>
+          <span>{this.props.year_built ? this.props.year_built : this.state.year_built}</span>
                 </li>
-                <button type="button" className="btn btn-primary mt-3 btnNew" onClick={this.saveHouse}>Save</button>
               </ul>
               
             </div>

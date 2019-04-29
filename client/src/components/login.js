@@ -6,8 +6,10 @@ import FirstPage from "../pages/FirstPage";
 import NoMatch from "../pages/NoMatch";
 import Result from "../pages/Result";
 import API from "../utils/API";
+
 import savedHomes from "../pages/savedHomes";
 import { Link } from "react-router-dom";
+
 
 class SignUpForm extends Component {
     constructor() {
@@ -16,9 +18,11 @@ class SignUpForm extends Component {
             email: '',
             //password: '',
             //name: '',
+
             flag: false,
             user:[],
             usr:[]
+
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -38,6 +42,7 @@ class SignUpForm extends Component {
 
     handleFormSubmit(e) {
         e.preventDefault();
+
         // remove
         //localStorage.removeItem('userName');
        
@@ -47,6 +52,7 @@ class SignUpForm extends Component {
         console.log(this.state);
         this.loadUser();
         
+
     }       
     loadUser = () => {
         console.log("Ekhane")
@@ -55,6 +61,7 @@ class SignUpForm extends Component {
         console.log("***********data"+JSON.stringify(res.data));
         
         this.setState({ user: res.data});
+
         this.findUser();
        
         }
@@ -73,9 +80,6 @@ class SignUpForm extends Component {
     }
     
     render() {
-        
-                        
-                    
             return (
                 <Jumbotron>
                     <legend>Sign In</legend>
@@ -88,6 +92,7 @@ class SignUpForm extends Component {
                             name="email"
                             placeholder="Enter your Email (Required)"
                         />                           
+
                     </div>      
                                      
                     <FormBtn onClick={this.handleFormSubmit} className="btn btn-primary mt-3">
@@ -118,4 +123,5 @@ class SignUpForm extends Component {
             }
         }
    
+
 export default SignUpForm;

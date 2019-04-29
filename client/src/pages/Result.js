@@ -53,11 +53,13 @@ class Result extends Component {
   searchHome = (str) => {
     console.log("search home:  "+str);
     var str1 = str.split(",");
+
     console.log(str1)
     let str2 = str1[2].split(" ");
     console.log(str2)
     console.log(str1[0],str1[1],str2[0]);
     API.displayAddress(str1[0],str1[1],str2[1])
+
 
       .then(response => {
         console.log("response:  "+ JSON.stringify(response));

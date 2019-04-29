@@ -8,7 +8,9 @@ export default {
   },
   getUser: function () {  
     console.log("uuffff")  
+
     return axios.get("/api/login");
+
   },
   // Gets the book with the given id
   getHome: function (id) {

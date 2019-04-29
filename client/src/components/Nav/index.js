@@ -13,8 +13,11 @@ function Nav() {
       <a className="navbar-brand" href="/login">
         Login
       </a>
-     
-      
+
+      <a className="navbar-brand" href="/save">
+        Saved House
+      </a>
+
     </nav>
   );
 }

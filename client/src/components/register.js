@@ -51,6 +51,7 @@ class SignUpForm extends Component {
             console.log(dbUser)        
             API.saveUser(dbUser)            
               .then(res => {
+
                 console.log("save user")
                 console.log(res.status, res.statusText);  
                 this.setState({
@@ -60,6 +61,7 @@ class SignUpForm extends Component {
                   this.state.password = "";
                   this.state.email = "";
               })    
+
               .catch(err => {
                 console.log(err);        
               })        
@@ -105,6 +107,7 @@ class SignUpForm extends Component {
                         </FormBtn>
                         {(this.state.saved?
                         (<p>Registration Successful</p>):(<div></div>))}
+
                     </form>
                     
                 </Jumbotron>

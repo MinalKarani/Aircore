@@ -51,7 +51,6 @@ class SignUpForm extends Component {
             console.log(dbUser)        
             API.saveUser(dbUser)            
               .then(res => {
-
                 console.log("save user")
                 console.log(res.status, res.statusText);  
                 this.setState({
@@ -60,7 +59,7 @@ class SignUpForm extends Component {
                   event.target.name = "";
                   this.state.password = "";
                   this.state.email = "";
-              })    
+              })   
 
               .catch(err => {
                 console.log(err);        
@@ -88,7 +87,9 @@ class SignUpForm extends Component {
                             <Input
                                 value={this.state.password}
                                 onChange={this.handleInputChange}
-                                name="password"
+
+                                name="password" 
+                                type="password"
                                 placeholder="Enter your password (Required)"
                             />                           
                         </div>
@@ -97,7 +98,7 @@ class SignUpForm extends Component {
                             <Input
                                 value={this.state.email}
                                 onChange={this.handleInputChange}
-                                name="email" 
+                                name="email"
                                 placeholder="Enter your Email (Required)"
                             />                           
                         </div>                      
@@ -106,7 +107,8 @@ class SignUpForm extends Component {
                             Submit
                         </FormBtn>
                         {(this.state.saved?
-                        (<p>Registration Successful</p>):(<div></div>))}
+
+                        (<p>Registration Sucessesfull</p>):(<div></div>))}
 
                     </form>
                     

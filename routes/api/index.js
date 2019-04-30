@@ -10,5 +10,4 @@ router.use("/register", userRoutes);
 
 router.use("/login", userRoutes);
 
-
 module.exports = router;

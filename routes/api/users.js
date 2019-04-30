@@ -1,15 +1,15 @@
 const router = require("express").Router();
-const homesController = require("../../controllers/homesController");
+const registerController = require("../../controllers/registerController");
 
 // Matches with "/api/homes"
 router.route("/")
-  .get(homesController.findAll)
-  .post(homesController.create);
+  .get(registerController.findAll)
+  .post(registerController.create);
 
 // Matches with "/api/homes/:id"
-router
+/*router
   .route("/:id")
-  .get(homesController.find)
+  .get(homesController.findById)
   .put(homesController.update)
   .delete(homesController.remove);
 
@@ -18,5 +18,8 @@ router
   .route("/about")
   .get(homesController.findAll)
   .post(homesController.create);
-*/
+
+router.route("/login")
+  .get(registerController.findOne)*/
+  
 module.exports = router;

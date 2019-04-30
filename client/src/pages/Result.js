@@ -28,19 +28,12 @@ class Result extends Component {
   saveHouse = event => {
     console.log("SAVE HOUSEEEEEE");  
     const dbHouse = {
-<<<<<<< HEAD
       address: this.props.add ? this.props.add : this.state.address,
       county: this.props.county ? this.props.county : this.state.county,
       building_type: this.props.building_type ? this.props.building_type : this.state.building_type,
       finished_size: this.props.finished_size ? this.props.finished_size : this.state.finished_size,
-      year_built: this.props.year_built ? this.props.year_built : this.state.year_built
-=======
-      address: this.props.add?this.props.add:this.state.address,
-      county: this.props.county?this.props.county:this.state.county,
-      building_type: this.props.building_type?this.props.building_type:this.state.building_type,
-      finished_size: this.props.finished_size?this.props.finished_size:this.state.finished_size,
-      year_built: this.props.year_built?this.props.year_built:this.state.year_built
->>>>>>> 52b93eee0852534e0e7f3b6779d8f74d0002dc5f
+      year_built: this.props.year_built ? this.props.year_built : this.state.year_built,
+      email:localStorage.getItem("email")
     };
     console.log(dbHouse)
 
@@ -105,42 +98,46 @@ class Result extends Component {
     if (!this.props.flag || this.zipFlag) {
       return (
         <Jumbotron>
-          <legend>Address Listing</legend>
-          <br></br>
-          <button type="button" className="btn btn-primary mt-3 btnNew" data-id={this.props.year_built} onClick={this.saveHouse}>Save</button>
-          <img src={this.props.mapUrl ? this.props.mapUrl : this.state.mapUrl} alt="MapUrl"/>
-          <ul>
-
-            <li>
-              
-              Address:
-          <span>{this.props.add ? this.props.add : this.state.address}</span>
-            </li>
-            <li>
-              County:
-          <span>{this.props.county ? this.props.county : this.state.county}</span>
-            </li>
-            <li>
-              building_type:
-          <span>{this.props.building_type ? this.props.building_type : this.state.building_type}</span>
-            </li>
-            <li>
-              Levels:
-          <span>{this.props.levels ? this.props.levels : this.state.levels}</span>
-            </li>
-            <li>
-              Finished Size:
-          <span>{this.props.finished_size ? this.props.finished_size : this.state.finished_size}</span>
-            </li>
-            <li>
-              year_built:
-          <span>{this.props.year_built ? this.props.year_built : this.state.year_built}</span>
-            </li>
-          </ul>
-          <br></br>
-
-         
-
+          <div class="card" style={{width:"800px"}}>
+              <div class="card-header" style={{ backgroundColor: "rgb(43, 43, 82)",color: "white"}}>
+                    Address Listing
+              </div>
+              <div class="card-body" style={{ backgroundColor: "lightgrey",color: "black"}}>
+                <img src={this.props.mapUrl ? this.props.mapUrl : this.state.mapUrl} alt="MapUrl"/>
+                    <ul style={{marginTop:"20px"}}>
+                        <li>
+                        Address:
+                        <span>{this.props.add ? this.props.add : this.state.address}</span>
+                        </li>
+                        <li>
+                        County:
+                        <span>{this.props.county ? this.props.county : this.state.county}</span>
+                        </li>
+                        <li>
+                        building_type:
+                        <span>{this.props.building_type ? this.props.building_type : this.state.building_type}</span>
+                        </li>
+                        <li>
+                        Levels:
+                        <span>{this.props.levels ? this.props.levels : this.state.levels}</span>
+                        </li>
+                        <li>
+                        Finished Size:
+                        <span>{this.props.finished_size ? this.props.finished_size : this.state.finished_size}</span>
+                        </li>
+                        <li>
+                        year_built:
+                        <span>{this.props.year_built ? this.props.year_built : this.state.year_built}</span>
+                        </li>
+                    </ul>
+                    <br></br>
+                        {localStorage.getItem("email")?
+                        (<button type="button" className="btn btn-primary mt-3 btnNew" data-id={this.props.year_built} onClick={this.saveHouse}>Save</button>)
+                        :""
+                        }
+                </div>
+              </div> 
+      
         </Jumbotron>
 
       )
@@ -149,59 +146,64 @@ class Result extends Component {
     else {
       return (
         <Jumbotron>
+            
+            <div class="card" style={{width:"800px"}}>
+                  <div class="card-header" style={{ backgroundColor: "rgb(43, 43, 82)",color: "white"}}>
+                      Lisiting by ZipCode
+                  </div>
+                  <div class="card-body" style={{ backgroundColor: "lightgrey",color: "black"}}>
+                      <div className="row">
+                      <div className="col-md-6">
+                        <ol>
+                          {this.props.zipresults.map(item => (
 
-          <div className="row">
+                          <li>
 
-            <legend>Lisiting by ZipCode</legend>
+                            <a onClick={() => {this.searchHome(item.address.oneLine);this.showMap(item.address.oneLine)}}>{item.address.oneLine}</a>
 
-            <div className="col-md-6">
-              <br></br>
-              <ol>
-                {this.props.zipresults.map(item => (
+                          </li>
 
-                  <li>
-
-                    <p onClick={() => {this.searchHome(item.address.oneLine);this.showMap(item.address.oneLine)}}>{item.address.oneLine}</p>
-
-                  </li>
-
-                ))}
-              </ol>
-            </div>
-            <div className="col-md-6">
+                        ))}
+                      </ol>
+                    </div>
+                <div className="col-md-6">
                  
-              <br></br>
-              <button type="button" className="btn btn-primary mt-3 btnNew" onClick={this.saveHouse}>Save</button>
-              <img src={this.props.mapUrl ? this.props.mapUrl : this.state.mapUrl} alt="MapUrl"/>
-              <ul>
-
-                <li>
-                  Address:
-                <span>{this.props.add ? this.props.add : this.state.address}</span>
-                </li>
-                <li>
-                  County:
-                <span>{this.props.county ? this.props.county : this.state.county}</span>
-                </li>
-                <li>
-                  building_type:
-                <span>{this.props.building_type ? this.props.building_type : this.state.building_type}</span>
-                </li>
-                <li>
-                  Levels:
-                <span>{this.props.levels ? this.props.levels : this.state.levels}</span>
-                </li>
-                <li>
-                  Finished Size:
-                <span>{this.props.finished_size ? this.props.finished_size : this.state.finished_size}</span>
-                </li>
-                <li>
-                  year_built:
-                <span>{this.props.year_built ? this.props.year_built : this.state.year_built}</span>
-                </li>
-                <button type="button" className="btn btn-primary mt-3 btnNew" onClick={this.saveHouse}>Save</button>
-              </ul>
+                    <br></br>
+                    
+                    <img style={{marginLeft:"25px"}} src={this.props.mapUrl ? this.props.mapUrl : this.state.mapUrl} alt="MapUrl"/>
+                    <ul>
+                      <li>
+                        Address:
+                        <span>{this.props.add ? this.props.add : this.state.address}</span>
+                      </li>
+                      <li>
+                        County:
+                        <span>{this.props.county ? this.props.county : this.state.county}</span>
+                      </li>
+                      <li>
+                        building_type:
+                        <span>{this.props.building_type ? this.props.building_type : this.state.building_type}</span>
+                      </li>
+                      <li>
+                        Levels:
+                        <span>{this.props.levels ? this.props.levels : this.state.levels}</span>
+                      </li>
+                      <li>
+                        Finished Size:
+                        <span>{this.props.finished_size ? this.props.finished_size : this.state.finished_size}</span>
+                      </li>
+                      <li>
+                        year_built:
+                        <span>{this.props.year_built ? this.props.year_built : this.state.year_built}</span>
+                      </li>
+                    </ul>
+                    {localStorage.getItem("email")?
+                              (<button type="button" className="btn btn-primary mt-3 btnNew" data-id={this.props.year_built} onClick={this.saveHouse}>Save</button>)
+                              :""
+                              }
               
+                </div>
+              </div>
             </div>
           </div>
         </Jumbotron>

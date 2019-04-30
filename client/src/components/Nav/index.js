@@ -1,6 +1,7 @@
 import React from "react";
 import "./nav.css";
 
+
 function clearStorage(){
   // remove
   console.log("clearing storage");
@@ -9,6 +10,7 @@ function clearStorage(){
      // remove all
   localStorage.clear();
 }
+
 function Nav() {
 
   return (
@@ -18,17 +20,21 @@ function Nav() {
       </a>
       <a className="navbar-brand" href="/search">
         Search Home
+
       </a>
       <a className="navbar-brand" href="/save">
         Saved Homes
+
       </a>
       <a className="navbar-brand" href="/login">
         Login
       </a>
+
       <a className="navbar-brand" href="/" onClick={clearStorage}>
         Logout
       </a>
      
+
     </nav>
   );
 }

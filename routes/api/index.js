@@ -7,6 +7,7 @@ const userRoutes = require("./users.js");
 router.use("/homes", homeRoutes);
 //User routes
 router.use("/register", userRoutes);
+
 router.use("/login", userRoutes);
 
 module.exports = router;

@@ -59,7 +59,8 @@ class SignUpForm extends Component {
                   event.target.name = "";
                   this.state.password = "";
                   this.state.email = "";
-              })    
+              })   
+
               .catch(err => {
                 console.log(err);        
               })        
@@ -86,6 +87,7 @@ class SignUpForm extends Component {
                             <Input
                                 value={this.state.password}
                                 onChange={this.handleInputChange}
+
                                 name="password" 
                                 type="password"
                                 placeholder="Enter your password (Required)"
@@ -105,7 +107,9 @@ class SignUpForm extends Component {
                             Submit
                         </FormBtn>
                         {(this.state.saved?
+
                         (<p>Registration Sucessesfull</p>):(<div></div>))}
+
                     </form>
                     
                 </Jumbotron>

@@ -3,7 +3,9 @@ const registerController = require("../../controllers/registerController");
 
 // Matches with "/api/homes"
 router.route("/")
+
   .get(registerController.findAll)
+
   .post(registerController.create);
 
 // Matches with "/api/homes/:id"

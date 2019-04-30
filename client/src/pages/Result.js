@@ -32,8 +32,10 @@ class Result extends Component {
       county: this.props.county ? this.props.county : this.state.county,
       building_type: this.props.building_type ? this.props.building_type : this.state.building_type,
       finished_size: this.props.finished_size ? this.props.finished_size : this.state.finished_size,
+
       year_built: this.props.year_built ? this.props.year_built : this.state.year_built,
       email:localStorage.getItem("email")
+
     };
     console.log(dbHouse)
 
@@ -54,11 +56,13 @@ class Result extends Component {
   searchHome = (str) => {
     console.log("search home:  "+str);
     var str1 = str.split(",");
+
     console.log(str1)
     let str2 = str1[2].split(" ");
     console.log(str2)
     console.log(str1[0],str1[1],str2[0]);
     API.displayAddress(str1[0],str1[1],str2[1])
+
 
       .then(response => {
         console.log("response:  "+ JSON.stringify(response));
@@ -146,6 +150,7 @@ class Result extends Component {
     else {
       return (
         <Jumbotron>
+
             
             <div class="card" style={{width:"800px"}}>
                   <div class="card-header" style={{ backgroundColor: "rgb(43, 43, 82)",color: "white"}}>
@@ -201,7 +206,7 @@ class Result extends Component {
                               (<button type="button" className="btn btn-primary mt-3 btnNew" data-id={this.props.year_built} onClick={this.saveHouse}>Save</button>)
                               :""
                               }
-              
+
                 </div>
               </div>
             </div>

@@ -19,6 +19,7 @@ class SignUpForm extends Component {
             flag: false,
             user:[],
             usr:[]
+
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -38,11 +39,9 @@ class SignUpForm extends Component {
 
     handleFormSubmit(e) {
         e.preventDefault();
-
         console.log('The form was submitted with the following data:');
         console.log(this.state);
         this.loadUser();
-        
     }       
     loadUser = () => {
         console.log("Ekhane")
@@ -51,12 +50,12 @@ class SignUpForm extends Component {
         console.log("***********data"+JSON.stringify(res.data));
         
         this.setState({ user: res.data});
+
         this.findUser();
        
         }
         )
-        .catch(err => console.log(err));
-        
+        .catch(err => console.log(err));       
         
     };
 
@@ -69,9 +68,7 @@ class SignUpForm extends Component {
     }
     
     render() {
-        
-                        
-                    
+
             return (
                 <Jumbotron>
                     <legend>Sign In</legend>
@@ -84,11 +81,13 @@ class SignUpForm extends Component {
                             name="email"
                             placeholder="Enter your Email (Required)"
                         />                           
+
                     </div>      
                                      
                     <FormBtn onClick={this.handleFormSubmit} className="btn btn-primary mt-3">
                         Submit
                     </FormBtn>
+
                     
                     <span style={{marginLeft:"10px"}}>Don't have an account. Please <a href="/register">sign up </a>here</span>
                     <br></br>
@@ -107,6 +106,7 @@ class SignUpForm extends Component {
                             ) : (
                             <h3></h3>
                             )}
+
                               
                     </form>                    
                 </Jumbotron>
@@ -114,4 +114,5 @@ class SignUpForm extends Component {
             }
         }
    
+
 export default SignUpForm;

@@ -10,6 +10,7 @@ module.exports = {
             .catch(err => res.status(422).json(err));
         console.log(res);
     },
+
     find: function (req, res) {
         db.User
             .find({email:req.params.email})
@@ -17,7 +18,7 @@ module.exports = {
             .catch(err => res.status(422).json(err));
         console.log(res);
     },
-    
+
     findById: function (req, res) {
         db.User
             .findById(req.params.id)

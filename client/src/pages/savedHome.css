@@ -11,3 +11,12 @@
     text-justify: inter-word;  
     margin-left:35px; 
 }
+
+
+@media only screen and (max-width: 600px) {
+    .card {
+     width:430px;
+     margin-left: 10px;
+     
+    }
+  }

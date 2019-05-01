@@ -4,10 +4,17 @@
     color: white;
     font-weight: bolder;
     background-size: cover;
-    background-image: url("airplane1.jpg");
     width:80%;
     margin-left:130px;
     height:650px;
     margin-top:25px;
     
 }
+
+@media only screen and (max-width: 600px) {
+    .jumbotron {
+     width:430px;
+     margin-left: 10px;
+     
+    }
+  }

@@ -5,12 +5,9 @@ import Jumbotron from "../components/Jumbotron";
 import { Col, Row, Container } from "../components/Grid";
 
 
-class Books extends Component {
+class Homes extends Component {
   state = {
-    books: [],
-    title: "",
-    author: "",
-    synopsis: ""
+   
   };
 
   
@@ -20,8 +17,7 @@ class Books extends Component {
         <Row>
           <Col size="md-12">
             <Jumbotron>
-              <h1 style={{ textAlign: "center"}}>Welcome to Homemavens !</h1>
-              
+              <img src="../../logo.png"></img>
             </Jumbotron>           
           </Col>          
         </Row>
@@ -30,4 +26,4 @@ class Books extends Component {
   }
 }
 
-export default Books;
+export default Homes;

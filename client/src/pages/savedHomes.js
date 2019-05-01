@@ -21,7 +21,8 @@ class Homes extends Component {
   }
 
   loadHomes = () => {
-    API.getHomes()
+    let email = localStorage.getItem("email");
+    API.getHome(email)
       .then(res =>{
         console.log("***********data"+JSON.stringify(res.data));
         
@@ -53,8 +54,7 @@ class Homes extends Component {
   
 
   render() {
-    return (
-      
+    return (      
             <Jumbotron>
                <div class="card" style={{width:"800px"}}>
                   <div class="card-header" style={{ backgroundColor: "rgb(43, 43, 82)",color: "white"}}>
@@ -63,20 +63,16 @@ class Homes extends Component {
                   <div class="card-body" style={{ backgroundColor: "lightgrey",color: "black"}}>
                     <h5 class="card-title"></h5>
                     <p class="card-text" style={{opacity:2}}>{this.state.homes.length ? (
-              
+       
                           <ul>
                             {this.state.homes.map(home => (
-                              <li>
-                                
+                              <li>                                
                                   <strong>
                                     {home.address}
                                   </strong>
                                   <strong>
                                     {home.countuy}
                                   </strong>
-                                  
-                                  
-                                  
                               </li>
                             ))}
                           </ul>

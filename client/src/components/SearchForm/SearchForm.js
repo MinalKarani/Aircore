@@ -1,12 +1,11 @@
 import React,{ Component } from "react";
-import Jumbotron from "./Jumbotron";
-import { Input, TextArea, FormBtn } from "./Form";
+import Jumbotron from "../Jumbotron";
+import { Input, TextArea, FormBtn } from "../Form";
 import axios from "axios";
-import FirstPage from "../pages/FirstPage";
-import NoMatch from "../pages/NoMatch";
-import Result from "../pages/Result";
-import API from "../utils/API";
+import Result from "../../pages/Result";
+import API from "../../utils/API";
 import SelectUSState from 'react-select-us-states';
+import "./style.css"
 
 class SearchForm extends Component {  
   state = {    
@@ -25,7 +24,8 @@ class SearchForm extends Component {
     zipresults:[],
     zipFlag:false,
     mapUrl:"",
-    place:""
+    place:"",
+    url:""
   };
 
   constructor(props) {
@@ -58,7 +58,7 @@ class SearchForm extends Component {
         building_type:response.data.property[0].summary.propclass,        
         finished_size:response.data.property[0].building.size.livingsize,
         year_built:response.data.property[0].summary.yearbuilt,
-        
+        url:"https://www.google.com/maps/place/"+response.data.property[0].address.oneLine,
         });
         
       })
@@ -191,6 +191,7 @@ render() {
             year_built={this.state.year_built}
             zipresults={this.state.zipresults}
             mapUrl={this.state.mapUrl}
+            url={this.state.url}
             
 
     />    

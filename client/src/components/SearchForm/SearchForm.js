@@ -165,12 +165,14 @@ render() {
       </div>
       <div class="form-group">
         <label for="place">State</label>
+
         <br></br>
         <SelectUSState 
         value={this.state.place}
         onChange={this.handleInputChange}
         name="place"
         id="myId" className="myClassName" onChange={this.setNewValue}/>
+
       </div>   
       
       <FormBtn onClick={this.handleFormSubmit} className="btn btn-primary mt-3">

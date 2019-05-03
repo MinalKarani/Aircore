@@ -14,3 +14,5 @@ Homemavens is a realtor app. It allows the user to register and login. After log
 - Praisy
 - Minal
 - Derek
+
+![Screenshot](image/May-2_-2019-10_36-PM.gif)
